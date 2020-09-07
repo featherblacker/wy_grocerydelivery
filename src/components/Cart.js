@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
 import "./Cart.css";
-import CartItem from "./CartItem";
 
 class Cart extends Component {
     constructor(props) {
@@ -10,6 +9,9 @@ class Cart extends Component {
             cart: [],
             totalPrice: 0,
         }
+    }
+
+    componentDidMount() {
         this.showCart()
     }
 
