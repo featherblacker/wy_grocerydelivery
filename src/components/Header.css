@@ -1,0 +1,28 @@
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.topline {
+    background-color: rgba(41, 193, 126, 0.5);
+    display: flex;
+    /*position: absolute;*/
+    top: 0;
+    width: 100%;
+    padding: 0 10%;
+}
+
+.languages {
+    position: relative;
+    left: 2rem;
+}
+
+.shopping {
+    float: right;
+    margin-left: auto;
+    right: 2rem;
+}
+
+.btn {
+    /*background-color: rgba(41, 193, 126, 0);*/
+}

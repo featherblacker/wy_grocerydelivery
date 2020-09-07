@@ -1,0 +1,74 @@
+.login {
+    display: grid;
+    width: 100%;
+    /*background-image: url("../img/sapiens.png");*/
+}
+
+.illusion{
+    display: inline-block;
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 10%;
+    width: 30vw;
+}
+.pic{
+    width: 100%;
+}
+
+.logInfo {
+    position: relative;
+    width: 23%;
+    margin-left: 14%;
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+
+.info {
+    width: 100%;
+    /*margin-bottom: 20px;*/
+}
+
+.username, .phone-number, .post-code, .email, .address, .area {
+    width: 100%;
+    height: 35px;
+}
+
+.sex {
+    font-size: 15px;
+}
+
+.submit-button {
+    text-align: center;
+    justify-items: center;
+    padding-top: 30px;
+}
+
+.sex-box {
+    display: inline-block;
+    text-align: center;
+    justify-items: center;
+}
+
+.submit {
+    width: 30%;
+    height: 35px;
+    /*background-color: #29c17e;*/
+
+    color: white;
+    background-color: #25b19b;
+    border: #25b19b;
+}
+
+
+.submit:hover {
+    color: white;
+    background-color: #25b19b;
+    border: #25b19b;
+    font-weight: bold;
+}
+
+.submit:active {
+    color: white;
+    background-color: #23a56a;
+    border: #23a56a;
+}

@@ -1,0 +1,41 @@
+.sideNav{
+    width: 13%;
+    min-width: 110px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(41, 193, 126, 0.5);
+    left: 12%;
+    color: rgba(41, 193, 126, 0.5);
+}
+
+.sideNav div{
+    border-bottom: solid white 0.3px;
+    border-left: solid white 0.3px;
+    border-right: solid white 0.3px;
+    height: 60px;
+    font-size: 20px;
+    color: white;
+    display: grid;
+    place-items: center;
+}
+
+.sideNav div:hover{
+    text-decoration: none;
+    background-color: rgb(41, 193, 126);
+    color: white;
+}
+
+.item-btn:active, .chosen {
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgb(41, 193, 126);
+    color: white;
+}
+
+.item-btn:focus {
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgb(41, 193, 126);
+    color: white;
+}
