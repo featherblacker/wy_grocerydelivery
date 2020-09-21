@@ -53,23 +53,24 @@ const allProducts = createSlice({
                 "type": "add",
             };
             const url = `api/shoppingmodify`;
-            // let productInCart = state.cart.find(mer => mer.id === action.payload.id)
-            // console.log(productInCart)
-            //
-            // if (productInCart) {
-            //     productInCart.quantity += 1
-            // } else {
-            //     state.cart.push({
-            //         ...action.payload,
-            //         quantity: 1
-            //     })
-            // }
-            // let total = 0
-            // for (let mer of state.cart) {
-            //     total += mer.quantity * mer.price
-            // }
-            // console.log(total)
-            // state.total = total.toFixed(2)
+            fetch(url, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                method: "post",
+                body: JSON.stringify(data),
+            })
+                .then(response => response.json())
+                .then(res => {
+                    console.log(res)
+                    if (res.status) {
+                        console.log(res.msg)
+                    } else {
+                        console.log(res)
+                        state.total = res.data.priceCount
+                    }
+                })
+
         }
     },
     extraReducers: {

@@ -9,7 +9,18 @@ class Cart extends Component {
             cart: [],
             arriveDate: ""
         }
-        this.showCart()
+
+    }
+
+    componentDidMount() {
+        if (!localStorage.getItem("cart")) {
+            this.showCart()
+        }else{
+            this.setState({
+                cart: JSON.parse(localStorage.getItem("cart")),
+                arriveDate: JSON.parse(localStorage.getItem("arriveDate"))
+            })
+        }
     }
 
     showCart = () => {
@@ -28,6 +39,8 @@ class Cart extends Component {
                 if (res.status) {
                     console.log(res.msg)
                 } else {
+                    localStorage.setItem("cart", JSON.stringify(res.data.shoppingItemList))
+                    localStorage.setItem("arriveDate", JSON.stringify(res.data.arriveMsg))
                     this.setState({
                         cart: res.data.shoppingItemList,
                         arriveDate: res.data.arriveMsg
@@ -93,7 +106,7 @@ class Cart extends Component {
                 <div className={"sCar"}>
                     <h1>购物车</h1>
                     <div className={"deliverDate"}>
-                        <p style={{margin: 0}}>{this.state.cart.arriveMsg}</p>
+                        <p style={{margin: 0}}>{this.state.arriveDate}</p>
                     </div>
 
                     <div className={"pro-col1"}> {
@@ -116,9 +129,12 @@ class Cart extends Component {
                                             </div>
                                         </div>
                                         <div className={'col3'}>
-                                            <button className={'btn btn-success btt'} onClick={() => this.reduce(item)}>-</button>
+                                            <button className={'btn btn-success btt'}
+                                                    onClick={() => this.reduce(item)}>-
+                                            </button>
                                             &nbsp;&nbsp;&nbsp;{item.totalNum}&nbsp;&nbsp;&nbsp;
-                                            <button className={'btn btn-success btt'} onClick={() => this.add(item)}>+</button>
+                                            <button className={'btn btn-success btt'} onClick={() => this.add(item)}>+
+                                            </button>
                                         </div>
 
                                     </div>

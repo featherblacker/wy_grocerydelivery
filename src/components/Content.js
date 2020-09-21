@@ -16,7 +16,6 @@ class Content extends Component {
         }
     }
 
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.id !== prevProps.id) {
             this.changeID(this.props.id)
