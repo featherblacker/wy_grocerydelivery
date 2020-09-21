@@ -1,8 +1,8 @@
-import {ADD_TO_CART} from "./cartTypes";
-import {SUB_TO_CART} from "./cartTypes";
+import {ADD_TO_CART, SUB_TO_CART} from "./cartTypes";
 
 const initialState = {
-    cart: {}
+    cart: {},
+    classifyList: []
 }
 
 const cartReducer = (state = initialState, action) => {

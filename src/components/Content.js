@@ -1,6 +1,9 @@
 import React, {Component} from "react";
-import {withRouter} from "react-router-dom";
 import "./Content.css";
+import allProducts, {loadProducts} from "../redux/cartSlice";
+import {connect} from "react-redux";
+
+const {addToCart} = allProducts.actions
 
 class Content extends Component {
     constructor(props) {
@@ -8,7 +11,8 @@ class Content extends Component {
         this.state = {
             allItems: {},
             itemList: [],
-            cart: {}
+            cart: {},
+            id: this.props.id
         }
     }
 
@@ -20,49 +24,17 @@ class Content extends Component {
     }
 
     componentDidMount() {
-        const url = `api/classifylist`;
-        fetch(url, {
-            method: "get",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            mode: 'cors'
-        })
-            .then((response) => response.json())
-            .then((res) => {
-                this.setState({
-                    itemList: res.data.itemList
-                })
-            });
+        this.props.loadProducts();
     }
 
     changeID = (id) => {
-        let allItems = this.state.allItems;
-        if (allItems.hasOwnProperty(id)) {
-            this.setState({
-                itemList: allItems[id]
-            })
-        } else {
-            const url = `api/classifylist?classify_id=${id}`;
-            fetch(url, {
-                method: "get",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                mode: 'cors'
-            })
-                .then((response) => response.json())
-                .then((res) => {
-                    allItems[id] = res.data.itemList
-                    this.setState({
-                        allItems: allItems,
-                        itemList: res.data.itemList
-                    })
-                });
-        }
+        this.setState({
+            id: id
+        })
     }
 
     addToCart = (e) => {
+        let name = e.target.name;
         let itemId = e.target.id;
         let data = {
             "useruss": "test",
@@ -81,8 +53,10 @@ class Content extends Component {
             .then(res => {
                 console.log(res)
                 if (res.status) {
+                    alert(`${name} 添加失败 \n reason:${res.msg}`)
                     console.log(res.msg)
                 } else {
+                    alert(`${name} 已加入购物车`)
                     this.setState({
                         cart: res.data,
                     })
@@ -90,13 +64,12 @@ class Content extends Component {
             })
     }
 
-
     render() {
         return (
             <div>
                 <div className={"pro-col"}>
                     {
-                        this.state.itemList.map((item, index) => {
+                        this.props.products[this.state.id].map((item, index) => {
                             return (
                                 <div className={"merchandise"} key={index}>
                                     <img className={"picture"} src={item.img} alt='#'/>
@@ -111,7 +84,7 @@ class Content extends Component {
                                             <span className={"price-number"}>{item.price}</span>
                                             {" /" + `${item.unit === "" ? "份" : item.unit}`}
                                         </div>
-                                        <button className={"btn add-btn"} id={item.id} onClick={this.addToCart}>加入购物车
+                                        <button className={"btn add-btn"} id={item.id} name={item.name} onClick={this.addToCart}>加入购物车
                                         </button>
                                     </div>
                                 </div>
@@ -120,8 +93,6 @@ class Content extends Component {
                         })
                     }
                 </div>
-                <div>
-                </div>
             </div>
 
 
@@ -129,4 +100,19 @@ class Content extends Component {
     }
 }
 
-export default withRouter(Content)
+const mapStateToProps = (state, ownProp) => {
+    return {
+        categories: state.store.categories,
+        products: state.store.products
+    }
+}
+
+const mapDispatchToProps = {
+    addToCart,
+    loadProducts
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Content)

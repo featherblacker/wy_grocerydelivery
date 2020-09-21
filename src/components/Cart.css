@@ -26,15 +26,22 @@
 
 .pro-col1 {
     margin: 15px 0;
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     overflow-y: scroll;
     height: 65vh;
 }
 
 .summary {
     height: 45px;
+}
+
+.amountSum {
+    float: left;
+    height: 45px;
+    margin: auto;
+    display: grid;
+    font-size: 30px;
+    font-weight: bold;
+    color: orangered;
 }
 
 .amount {
@@ -53,7 +60,7 @@
     font-size: 20px;
     float: right;
 
-    background-color: rgba(41, 193, 126, 0.5);
+    background-color: #3bbf9c;
     border: #25b19b;
 }
 
@@ -67,4 +74,70 @@
     background-color: #25b19b;
     border: #25b19b;
     font-weight: bold;
+}
+
+.shoppingList{
+    width: 99%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    background-color:beige;
+    border-radius: 3%;
+    margin-bottom: 2%;
+}
+
+.col1{
+    display: flex;
+    position: relative;
+    margin-left: 20px;
+    width: 20%;
+}
+
+.itemImage{
+    height: 160px;
+    border-radius: 5%;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.col2{
+    margin: 20px 50px 0 20px;
+    width: 40%;
+}
+
+.itemName{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.priceClass{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.itemPrice{
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: red;
+    font-size: 25px;
+}
+
+.itemOrigPrice{
+    color:gray;
+    text-decoration: line-through;
+    text-align: center;
+}
+
+.col3{
+    float: right;
+    margin-left: auto;
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.btt{
+    width: 40px;
 }

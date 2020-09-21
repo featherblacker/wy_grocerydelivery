@@ -7,11 +7,8 @@ class Cart extends Component {
         super(props);
         this.state = {
             cart: [],
-            totalPrice: 0,
+            arriveDate: ""
         }
-    }
-
-    componentDidMount() {
         this.showCart()
     }
 
@@ -32,7 +29,8 @@ class Cart extends Component {
                     console.log(res.msg)
                 } else {
                     this.setState({
-                        cart: res.data.shoppingItemList
+                        cart: res.data.shoppingItemList,
+                        arriveDate: res.data.arriveMsg
                     })
                     console.log(this.state)
                 }
@@ -87,14 +85,6 @@ class Cart extends Component {
             })
     }
 
-    calculate(){
-        let sum = 0;
-        this.state.cart.map((item, index) => {
-            sum = sum + item.price * item.totalNum;
-        })
-        console.log(this.state.cart)
-        return sum
-    }
 
     render() {
         let sum = 0
@@ -111,27 +101,26 @@ class Cart extends Component {
                             sum = sum + item.price * item.totalNum;
                             return (
                                 <div key={index}>
-                                    <div>
-                                        <div>
-                                            名称: {item.name}
+                                    <div className={'shoppingList'}>
+                                        <div className={'col1'}>
+                                            <img className={'itemImage'} src={item.img}/>
                                         </div>
-                                        <div>
-                                            价格: {item.price}
+                                        <div className={'col2'}>
+                                            <div className={'itemName'}>
+                                                {item.name}
+                                            </div>
+                                            <div className={'priceClass'}>
+                                                <span className={'itemPrice'}>{"$"}{item.price}</span>
+                                                {" /" + `${item.unit === "" ? "份" : item.unit}`}&nbsp;&nbsp;&nbsp;
+                                                <span className={'itemOrigPrice'}>{"$"}{item.originPrice}</span>
+                                            </div>
                                         </div>
-                                        <div>
-                                            原价: {item.originPrice}
+                                        <div className={'col3'}>
+                                            <button className={'btn btn-success btt'} onClick={() => this.reduce(item)}>-</button>
+                                            &nbsp;&nbsp;&nbsp;{item.totalNum}&nbsp;&nbsp;&nbsp;
+                                            <button className={'btn btn-success btt'} onClick={() => this.add(item)}>+</button>
                                         </div>
-                                        <div>
-                                            数目: <button onClick={() => this.reduce(item)}>-</button>
-                                            {item.totalNum}
-                                            <button onClick={() => this.add(item)}>+</button>
-                                        </div>
-                                        <div>
-                                            自营: {item.spName}
-                                        </div>
-                                        <div>
-                                            <img src={item.img}/>
-                                        </div>
+
                                     </div>
                                 </div>
                             )
@@ -140,7 +129,8 @@ class Cart extends Component {
                     </div>
 
                     <div className={"summary"}>
-                        <p className={"amount"}>总计：{sum}元 (实际价格以小票为准)</p>
+                        <span className={"amount"}>总计：</span><span className={"amountSum"}>{sum} </span>
+                        <span className={"amount"}>&nbsp;&nbsp;{'元'}&nbsp;&nbsp;{'(实际价格以小票为准)'}</span>
                         <button type="submit" className="btn goLogin">立即下单</button>
                     </div>
 
