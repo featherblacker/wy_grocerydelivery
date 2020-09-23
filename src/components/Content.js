@@ -64,11 +64,20 @@ class Content extends Component {
     }
 
     render() {
+        // let productResult = []
+        // let searched = !!localStorage.getItem('searchResult');
+        // if (searched){
+        //     productResult = JSON.parse(localStorage.getItem('searchResult'))
+        //     console.log(productResult)
+        // }else{
+        //     productResult = this.props.products[this.state.id]
+        //     console.log(productResult)
+        // }
         return (
             <div>
                 <div className={"pro-col"}>
                     {
-                        this.props.products[this.state.id].map((item, index) => {
+                    this.props.products[this.state.id].map((item, index) => {
                             return (
                                 <div className={"merchandise"} key={index}>
                                     <img className={"picture"} src={item.img} alt='#'/>

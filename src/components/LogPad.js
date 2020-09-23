@@ -50,13 +50,13 @@ class LogPag extends Component {
                     <div className={"form-check form-check-inline info sex-box"} onChange={this.handleChange}>
                         <label>
                             <input className="form-check-input" type="radio" name={"gender"} id="inlineRadio1"
-                                   value="先生"/>
+                                   value="先生" defaultChecked={true}/>
                             先生
                         </label>
 
                         <label>
                             <input className="form-check-input" type="radio" name={"gender"} id="inlineRadio2"
-                                   value="女士"/>
+                                   value="女士" />
                             女士
                         </label>
                     </div>
