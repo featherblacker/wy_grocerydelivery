@@ -42,6 +42,7 @@ class SideNav extends Component {
                                     return (
                                         <div
                                             className={index === this.state.index ? "item-btn btn chosen" : "item-btn btn"}
+                                            style={{border:"none"}}
                                             tabIndex={"0"} key={index} onClick={() => {
                                             this.classChange(index)
                                         }}>
@@ -51,7 +52,7 @@ class SideNav extends Component {
                                 })
                             }
                         </div>
-                        <Content id={this.state.index}/>
+                        <Content id={this.state.index} searchResult={this.props.searchResult}/>
                     </div>
                     : <ProgressBar animated now={100} variant="success" />
                 }

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "./Content.css";
 import allProducts, {loadProducts} from "../redux/cartSlice";
 import {connect} from "react-redux";
+import {getCart} from "../applets/Applets"
 
 const {addToCart} = allProducts.actions
 
@@ -12,7 +13,8 @@ class Content extends Component {
             allItems: {},
             itemList: [],
             cart: {},
-            id: this.props.id
+            id: this.props.id,
+            searchResult: this.props.searchResult
         }
     }
 
@@ -61,23 +63,23 @@ class Content extends Component {
                     })
                 }
             })
+        getCart();
     }
 
     render() {
-        // let productResult = []
-        // let searched = !!localStorage.getItem('searchResult');
-        // if (searched){
-        //     productResult = JSON.parse(localStorage.getItem('searchResult'))
-        //     console.log(productResult)
-        // }else{
-        //     productResult = this.props.products[this.state.id]
-        //     console.log(productResult)
-        // }
+        let productResult = []
+        let searched = !!localStorage.getItem('searchResult');
+        if (searched) {
+            productResult = JSON.parse(localStorage.getItem('searchResult'))
+            console.log(productResult)
+        } else {
+            productResult = this.props.products[this.state.id]
+        }
         return (
             <div>
                 <div className={"pro-col"}>
                     {
-                    this.props.products[this.state.id].map((item, index) => {
+                        productResult.map((item, index) => {
                             return (
                                 <div className={"merchandise"} key={index}>
                                     <img className={"picture"} src={item.img} alt='#'/>
@@ -92,7 +94,8 @@ class Content extends Component {
                                             <span className={"price-number"}>{item.price}</span>
                                             {" /" + `${item.unit === "" ? "份" : item.unit}`}
                                         </div>
-                                        <button className={"btn add-btn"} id={item.id} name={item.name} onClick={this.addToCart}>加入购物车
+                                        <button className={"btn add-btn"} id={item.id} name={item.name}
+                                                onClick={this.addToCart}>加入购物车
                                         </button>
                                     </div>
                                 </div>

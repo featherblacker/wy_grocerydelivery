@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Header from "../components/Header";
-import Nav1 from "../components/Nav1";
+import TopNav from "../components/TopNav";
 import SideNav from "../components/SideNav"
 
 class Home extends Component {
@@ -8,15 +8,23 @@ class Home extends Component {
         super(props);
         this.state = {
             cart: {},
+            searchResult: []
         }
+    }
+
+    handleChange = (searchResult) => {
+        this.setState({
+            searchResult: searchResult
+        })
+
     }
 
     render() {
         return (
             <>
                 <Header {...this.state}/>
-                <Nav1/>
-                <SideNav {...this.state}/>
+                <TopNav handleChange={this.handleChange}/>
+                <SideNav searchResult={this.state.searchResult}/>
             </>
         )
     }

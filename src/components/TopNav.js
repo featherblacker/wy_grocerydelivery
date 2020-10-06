@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
-import "./Nav1.css";
+import "./TopNav.css";
 
-class Nav1 extends Component {
+class TopNav extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,14 +13,19 @@ class Nav1 extends Component {
 
     componentDidMount() {
         if (!this.state.word) {
-            localStorage.setItem("searchResult", [])
+            localStorage.removeItem("searchResult")
         }
     }
 
     handleChange = (e) => {
         let word = e.target.value
         if (word === "") {
-            localStorage.setItem("searchResult", [])
+            localStorage.removeItem("searchResult")
+            this.setState({
+                word: "",
+                searchResult: []
+            })
+            this.props.handleChange({searchResult:[]})
             return
         }
         const url = `api/search?word=${word}`;
@@ -36,6 +41,7 @@ class Nav1 extends Component {
                     console.log(res.msg)
                 } else {
                     localStorage.setItem("searchResult", JSON.stringify(res.data.itemList))
+                    this.props.handleChange({searchResult:res.data.itemList})
                     this.setState({
                         word: word,
                         searchResult: res.data.itemList
@@ -67,4 +73,4 @@ class Nav1 extends Component {
     }
 }
 
-export default withRouter(Nav1);
+export default withRouter(TopNav);

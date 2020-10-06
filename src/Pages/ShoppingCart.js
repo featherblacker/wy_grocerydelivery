@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
 import Header from "../components/Header";
-import Nav1 from "../components/Nav1";
+import Nav1 from "../components/TopNav";
 import Cart from "../components/Cart";
 class ShoppingCart extends Component {
     constructor(props) {
