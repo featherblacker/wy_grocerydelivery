@@ -1,3 +1,26 @@
+
+## Introduction
+
+This SPA website is what I developed when I served as volunteer in OCMA(Ottawa Chinese Musician's Association).
+ The reason why I established this project is to provide a web platform for people to order online. Due to COVID-19,
+  people feel stressed and unsafe to go outdoors, especially for those crowded indoor places. The team OCMA spontaneously
+ launched a project to deliver food and daily necessities to the residents of Ottawa, mainly for those international students
+ and elders. Clients can easily log in our website and order merchandises freely. In this process, they need to provide
+ the basic delivery information, such as nickname, contact number and address. Delivery fee will be automatically calculated 
+ when the target delivery place is filled. 
+
+## Project Analysis
+
+The grocery delivery project technically consists of three parts: front-end website, back-end server and database.
+For the back-end development and database setup, a great team done these and wrote Restful API document for the front-end, 
+which is helpful. By checking the API document, I can easily transfer these get and post requests. The front-end part is built
+ with ReactJS library, which is a pretty popular way to deal with client service. The building of front-end would follow the 
+ UI/UX design rules. The user should feel comfortable and enjoyment when using services. 
+
+###Home Page
+![Homepage](src/img/Woying_homepage.png)
+
+
 [![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=featherblacker)](https://github.com/anuraghazra/github-readme-stats)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
