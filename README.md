@@ -17,8 +17,25 @@ which is helpful. By checking the API document, I can easily transfer these get 
  with ReactJS library, which is a pretty popular way to deal with client service. The building of front-end would follow the 
  UI/UX design rules. The user should feel comfortable and enjoyment when using services. 
 
-###Home Page
+### Home Page
 ![Homepage](src/img/Woying_homepage.png)
+
+Homepage consists of three parts: Top line, Banner and Merchandise. Every page in this website consists of both Top line and Banner,
+ making it easy for clients to transfer to shopping cart, profile and search result. As you can see, the left column lists different 
+ species of good, such as raw food, groceries and necessaries. You can see items in different class on right part of the page. Each item on
+  the right part is shown as a merchandise card. Here you can see the exterior, name, description, price, and sale condition of the item.
+  There's also a button where you can add the item to your cart. 
+  
+### Profile
+![Profile](src/img/Profile.png)
+
+Profile page is the place where people submit their delivery information. In order to keep privacy of customers, the merchant only ask for 
+basic address and contact information about users. These content and choices are stored in the localstorage of the explorer so people don't
+ have to refill the form when they use the delivery service next time.
+ 
+### Shopping Cart
+![Cart](src/img/ShoppingCart.png)
+
 
 
 [![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=featherblacker)](https://github.com/anuraghazra/github-readme-stats)
