@@ -12,7 +12,7 @@ This SPA website is what I developed when I served as volunteer in OCMA(Ottawa C
 ## Project Analysis
 
 The grocery delivery project technically consists of three parts: front-end website, back-end server and database.
-For the back-end development and database setup, a great team done these and wrote Restful API document for the front-end, 
+For the back-end development and database setup, a great team done these and wrote Restful API documents for the front-end, 
 which is helpful. By checking the API document, I can easily transfer these get and post requests. The front-end part is built
  with ReactJS library, which is a pretty popular way to deal with client service. The building of front-end would follow the 
  UI/UX design rules. The user should feel comfortable and enjoyment when using services. 
@@ -36,6 +36,18 @@ basic address and contact information about users. These content and choices are
 ### Shopping Cart
 ![Cart](src/img/ShoppingCart.png)
 
+This page shows what's in your shopping cart, total price, estimated arrive date. You can check out with one click. Also, customers are 
+able to edit the quantity of any item in the cart. The data of cart is stored in the dataset and every time people open this page, a request
+is sent to the back-end, and the server would return the cart of the specific user. Once people click the checkout button, the request would
+be sent to the server and the only thing people need to do is preparing for the call.
+
+### Tech skills application
+
+Technically, this project is almost fully developed using ReactJS. Besides that, Redux-React is applied to achieve usage between states of 
+different branches. All user's personal information, merchandises and shopping cart content are stored in the local storage of the explorer. 
+It makes it easier and faster to load up the website every time refresh. All classes of items are stored in the local storage so every time 
+people click any class on the left list, the right list of items would show up instantly. Bootstrap 4 is applied here to make the interface 
+fancy. I also used Adobe XD to draw illustrate pictures to beautify pages.
 
 
 [![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=featherblacker)](https://github.com/anuraghazra/github-readme-stats)
