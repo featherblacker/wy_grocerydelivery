@@ -50,7 +50,6 @@ people click any class on the left list, the right list of items would show up i
 fancy. I also used Adobe XD to draw illustrate pictures to beautify pages.
 
 
-[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=featherblacker)](https://github.com/anuraghazra/github-readme-stats)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -120,3 +119,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=featherblacker)](https://github.com/anuraghazra/github-readme-stats)
